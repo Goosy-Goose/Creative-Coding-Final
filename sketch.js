@@ -1,6 +1,5 @@
 var CanvWidth, CanvHeight;
 var ReadInstructions, InstrucNum;
-var glitch
 var VisNovel;
 var Text_Box;
 var Background_Classroom, Background_Player_Home, Background_Kit_Home, Background_Outside_Classroom;
@@ -131,23 +130,6 @@ function getWidthAndHeight(){
     CanvWidth = maxW;
     CanvHeight = maxH;
   }
-}
-
-
-
-//this is for backgrounds and glitchy flashbacks which I will be incorporating in the future
-function makeImgGlitch(imgToGlitch){ //still not getting the glitched image to work
-  glitch.loadImage(imgToGlitch, function(im){glitch.loadImage(im)});
-  glitch.resetBytes();
-  glitch.loadType('png');
-  glitch.replaceBytes(100,100);
-  glitch.randomBytes(1);
-  glitch.buildImage();
-  image(SomethingCreepy, innerWidth/2, innerHeight/2, innerWidth, innerHeight)
-  image(glitch.image, innerWidth/2, innerHeight/2, innerWidth, innerHeight);
-  textSize(36);
-  text("ive been trying to get the glitch to work for two hours now and im done", 10, innerHeight/2)
-  text("i was obviously unsucessful", 10, innerHeight/2+40);
 }
 
 
