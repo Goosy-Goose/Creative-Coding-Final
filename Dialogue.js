@@ -7,7 +7,7 @@ class Dialogue{
   }
 
   displayText(initFrame){ //will have more checks for which type of speaker, also will incorporate an occasional random delete for the classmate (like they're typing their text instead of actually speaking it)
-    textSize(30);
+    textSize(CanvHeight*.0357);
     textFont(ForcedSquare);
     textAlign(CENTER);
     rectMode(CENTER);
@@ -17,9 +17,9 @@ class Dialogue{
     text(this.speakerType, CanvWidth/5, CanvHeight-CanvHeight/6 - CanvHeight/11);
     pop();
     if(this.showFullText){ //shows full text
-      text(this.text,CanvWidth/2, CanvHeight-CanvHeight/6,CanvWidth*5/7)
+      text(this.text,CanvWidth/2, CanvHeight-CanvHeight/6,CanvWidth*5/7-10)
     } else{ //f full text is not shown, continues to scroll 
-      text(this.text.substring(0, frameCount-initFrame),CanvWidth/2, CanvHeight-CanvHeight/6,CanvWidth*5/7)
+      text(this.text.substring(0, frameCount-initFrame),CanvWidth/2, CanvHeight-CanvHeight/6,CanvWidth*5/7-10)
     }
     if(!this.showFullText)
     this.checkFullTextDisplayed(initFrame);

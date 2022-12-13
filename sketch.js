@@ -5,6 +5,8 @@ var VisNovel;
 var Text_Box;
 var Background_Classroom, Background_Player_Home, Background_Kit_Home, Background_Outside_Classroom;
 var Kit_Annoyed, Kit_Normal, Kit_Happy, Kit_Crossed_Arms, Kit_Yell, Kit_Sit;
+var Flashback1, Flashback1_chr, Flashback1_chr2, Flashback1_chr3, Flashback1_chr4, Flashback2, Flashback3_1, Flashback3_2, Flashback3_3;
+var Pencil_Scratching;
 var ForcedSquare;
 var ScenesCSV;
 var CurrentSceneNumber, CurrentChapterNumber;
@@ -23,6 +25,16 @@ function preload(){
   Kit_Crossed_Arms = loadImage('./resources/images/characters/Kit_Crossed_Arms.png')
   Kit_Yell = loadImage('./resources/images/characters/Kit_Yell.png');
   Kit_Sit = loadImage('./resources/images/characters/Kit_Sit.png');
+  Flashback1 = loadImage('./resources/images/flashbacks/Flashback1.png');
+  Flashback1_chr = loadImage('./resources/images/flashbacks/Flashback1_chroma.png')
+  Flashback1_chr2 = loadImage('./resources/images/flashbacks/Flashback1_chroma2.png')
+  Flashback1_chr3 = loadImage('./resources/images/flashbacks/Flashback1_chroma3.png')
+  Flashback1_chr4 = loadImage('./resources/images/flashbacks/Flashback1_chroma4.png')
+  Flashback2 = loadImage('./resources/images/flashbacks/Flashback2.png');
+  Flashback3_1 = loadImage('./resources/images/flashbacks/Flashback3_1.png');
+  Flashback3_2 = loadImage('./resources/images/flashbacks/Flashback3_2.png');
+  Flashback3_3 = loadImage('./resources/images/flashbacks/Flashback3_3.png');
+  Pencil_Scratching = loadSound('./resources/sounds/Pencil_Scratching.mp3');
   ScenesCSV = loadTable("./resources/Scenes.csv", "csv", "header");
   ForcedSquare = loadFont("./resources/fonts/FORCED SQUARE.ttf");
 }
@@ -31,10 +43,11 @@ function setup(){
   ReadInstructions = false;
   InstrucNum = 0;
   getWidthAndHeight();
+  print(CanvHeight)
   createCanvas(CanvWidth, CanvHeight);
   glitch = new Glitch();
   VisNovel = new Scenes(ScenesCSV);
-  CurrentSceneNumber = 50;
+  CurrentSceneNumber = 181;
   CurrentChapterNumber = 0;
   Frame = 0;
   imageMode(CENTER);
@@ -67,7 +80,7 @@ function displayInstructions(){
     text("Great! You're doing wonderfully.\bIn this visual novel, the text will scroll. To fast forward this text, simply left click again to show the entire text. Keep in mind that you will not be able to go back, so be careful when fast forwarding.\b (Click to continue)",CanvWidth/2, CanvHeight/2, CanvWidth*4/5)
   }else if(InstrucNum === 2){
     textSize(30);
-    text("To begin reading, click anywhere on the screen.",CanvWidth/2, CanvHeight/2, CanvWidth*4/5)
+    text("As a warning, there will be swearing, and there is a small flash warning for this experience. To begin reading, click anywhere on the screen.",CanvWidth/2, CanvHeight/2, CanvWidth*4/5)
   }
  
 }
@@ -95,10 +108,10 @@ function mousePressed(){
 
 function goNextScene(){
   Frame = frameCount;
-    if(CurrentSceneNumber>= ScenesCSV.length-1){
-      CurrentSceneNumber= CurrentSceneNumber
-    } else{ //THIS IF ELSE LOOP IS TEMPORARY AS I PLAN ON ONLY HAVING THE PLAYER LOOP THROUGH THE STORY ONCE BEFORE GOING ON TO THE FIGHTING GAME
-      CurrentSceneNumber++ //will incorporate text skipping (if pressed while text is still scrolling, will display full text)
+    if(CurrentSceneNumber>= ScenesCSV.getRowCount()-1){
+      CurrentSceneNumber= CurrentSceneNumber;
+    } else{ 
+      CurrentSceneNumber++;
     }
 }
 
@@ -118,8 +131,6 @@ function getWidthAndHeight(){
     CanvWidth = maxW;
     CanvHeight = maxH;
   }
-  print(CanvWidth + ": 11")
-  print(CanvHeight + ": 17");
 }
 
 
