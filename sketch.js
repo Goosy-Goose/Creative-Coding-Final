@@ -47,7 +47,7 @@ function setup(){
   createCanvas(CanvWidth, CanvHeight);
   glitch = new Glitch();
   VisNovel = new Scenes(ScenesCSV);
-  CurrentSceneNumber = 181;
+  CurrentSceneNumber = 0;
   CurrentChapterNumber = 0;
   Frame = 0;
   imageMode(CENTER);
@@ -72,7 +72,7 @@ function displayInstructions(){
     textSize(30);
     text("This is",CanvWidth/2, CanvHeight/2-70, CanvWidth*4/5);
     textSize(40);
-    text("\"The Story In Which You May Or May Not Die\"",CanvWidth/2, CanvHeight/2, CanvWidth*4/5 )
+    text("\"An Old Wooden Ship\"",CanvWidth/2, CanvHeight/2, CanvWidth*4/5 )
     textSize(30);
     text("A visual novel. To proceed through the visual novel, left click anywhere on the screen.",CanvWidth/2, CanvHeight/2+70, CanvWidth*4/5 )
   }else if(InstrucNum ===1){
