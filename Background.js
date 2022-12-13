@@ -3,7 +3,7 @@ class Background{
     this.bgImg = bgImg;
   }
 
-  displayBackground(){
+  displayBackground(){ //unfortunately I was having issues with directly putting this.bgImg into the image() function so I had to resort to if statements
     push();
     imageMode(CORNER);
     if(this.bgImg === "Classroom"){

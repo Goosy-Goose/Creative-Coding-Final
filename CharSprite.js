@@ -1,5 +1,5 @@
 class CharSprite{
-  constructor(char1, char2, bgImg){
+  constructor(char1, char2, bgImg){ //char2 isn't used yet, but I want to continue working on this project in the future, and I definitely will be implementing char 2
     this.char1 = char1;
     this.char2 = char2;
     this.bgImg = bgImg;
@@ -7,7 +7,6 @@ class CharSprite{
 
   displayCharSprite(){ //this function is so ugly and i'm infinitely sorry, but i couldn't figure out a way to not use if statements for everything and I hate it
     let char1x = 0;
-    let char2x = CanvWidth/5
     if(this.bgImg === "Classroom"){
       char1x = -CanvWidth/5
     }

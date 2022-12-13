@@ -10,12 +10,9 @@ class Scenes{
     this.specFrame;
     this.framesToPlay;
     this.canGoNext = false;
-
-    this.randX = random(100, 300);
-    this.randY = random(50, 400);
   }
 
-  playScene(sceneNum, initFrame){
+  playScene(sceneNum, initFrame){ //retrieves background, text, and character sprite information for cleanliness
     if(this.ScenesCSV.getColumn('Is Special')[sceneNum] != "t"){
       this.isSpecialScene = false;
       if(initFrame === frameCount-1){//ensures this only happens once for each new scene
@@ -37,24 +34,21 @@ class Scenes{
     this.text.fastFwdText()
   }
 
-  checkCanGoNextScene(){
-    
+  checkCanGoNextScene(){//checks if the special scene is done (special scenes usually have a set run-time) AND checks if all text is on screen.
     if(this.isSpecialScene){
-      if(frameCount > this.specFrame + this.sceneTime*20){
+      if(frameCount > this.specFrame + this.sceneTime*20){//only returns true if this math calculates that the time specified in the csv has passed
         return true;
       }
     }
     if (!this.isSpecialScene){
-      if(this.text.getShowFullText()){//if the full dialogue is shown AND IF FLASHBACK/SPECIAL IS COMPLETE
+      if(this.text.getShowFullText()){
         return true;
       }
     }
-
-    
   }
 
 
-  playSpecialScene(sceneNum, initFrame){
+  playSpecialScene(sceneNum, initFrame){//customized functions for each special scene
     if(initFrame === frameCount-1){//ensures this only happens once for each new scene
       this.specFrame = initFrame;
       this.bg = new Background(this.ScenesCSV.getColumn('Background Img')[sceneNum], this.ScenesCSV.getColumn('Char 1')[sceneNum]);
