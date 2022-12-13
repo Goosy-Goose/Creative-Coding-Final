@@ -45,9 +45,7 @@ class Dialogue{
 
   displayTextBox(){
     push()
-    noStroke();
-    fill(240,240,240,220)
-    rect(CanvWidth/2, CanvHeight-CanvHeight/6,CanvWidth*5/7, CanvHeight/4)
+    image(Text_Box,CanvWidth/2, CanvHeight/2, CanvWidth, CanvHeight)
     pop()
   }
 
